@@ -11,21 +11,24 @@ namespace BinarySearchTree
         //member variables
         //public Node<int> start;
         public Node<int> root;
-
+        Random random = new Random();
 
         //constructor
-        public BinarySearchTree(int valueIn)
+        public BinarySearchTree()
         {
+            for (int i = 0; i < 10; i++)
+            {
+                Add(random.Next(1, 101));
+            }
             
         }
         
         //member methods       
         public void Add(int valueIn)
         {
-
             bool success = false;
             Node<int> newNode = new Node<int>(valueIn);
-
+            Node<int> currentNode;
 
             //determine position
             while (!success)
@@ -33,21 +36,33 @@ namespace BinarySearchTree
                 //1. Set the parent node to be the current node, which is the root node.
                 if (root == null)
                 {
-                    root = newNode;
+                    this.root = newNode;
                     success = true;
                     break;
                 }
-                //2a. If the data value in the new node is less than the data value in the current node, 
-                else if (valueIn < root.value)
+                else
                 {
+                    currentNode = root;
+                }
+
+                //2a. If the data value in the new node is less than the data value in the current node, 
+                //if (valueIn < root.value)
+                if (valueIn < currentNode.value)
+                {
+                    //currentNode = root;
                     //set the current node to be the left child of the current node.
-                    root = root.leftChild;
+                    //root = root.leftChild;
+                    currentNode = currentNode.leftChild;
 
                     //3a. If the value of the left child of the current node is null, 
-                    if (root.leftChild == null)
+                    //if (root.leftChild == null)
+                    //if (currentNode.leftChild == null)
+                    if (currentNode == null)
                     {
                         //insert the new node here and exit the loop.
-                        root.leftChild = newNode;
+                        //root.leftChild = newNode;
+                        //currentNode.leftChild = newNode;
+                        currentNode = newNode;
                         success = true;
                         break;
                     }
@@ -59,15 +74,18 @@ namespace BinarySearchTree
                 }
                 //2b.If the data value in the new node is greater than the data value in the 
                 //current node, 
-                else if (valueIn >= root.value)
+                else if (valueIn >= currentNode.value)
                 {
                     //skip to Step 4.
                     //4. Set the current node to the right child node of the current node.
                     //5a. If the value of the right child of the current node is null, 
-                    if (root.rightChild == null)
+                    //if (root.rightChild == null)
+                    currentNode = currentNode.rightChild;
+
+                    if (currentNode == null)
                     {
                         //insert the new node here and exit the loop.
-                        root.rightChild = newNode;
+                        currentNode = newNode;
                         success = true;
                         break;
                     }

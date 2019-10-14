@@ -1,0 +1,6 @@
+C:\Users\trevo\Dropbox\dcc\25 - algo&perf\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.exe.config
+C:\Users\trevo\Dropbox\dcc\25 - algo&perf\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.exe
+C:\Users\trevo\Dropbox\dcc\25 - algo&perf\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.pdb
+C:\Users\trevo\Dropbox\dcc\25 - algo&perf\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.csprojAssemblyReference.cache
+C:\Users\trevo\Dropbox\dcc\25 - algo&perf\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.exe
+C:\Users\trevo\Dropbox\dcc\25 - algo&perf\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.pdb
