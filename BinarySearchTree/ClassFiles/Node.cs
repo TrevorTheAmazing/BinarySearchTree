@@ -40,24 +40,47 @@ namespace BinarySearchTree
             {
                 if (rightChild == null)
                 {
-                    new Node(value);
+                    rightChild = new Node(value);
                 }
                 else
                 {
-                    rightChild.Insert(data);
+                    rightChild.Insert(value);
                 }
             }
             else
             {
                 if (leftChild == null)
                 {
-                    leftChild = new Node(data);
+                    leftChild = new Node(value);
                 }
                 else
                 {
-                    leftChild.Insert(data);
+                    leftChild.Insert(value);
                 }
             }
         }
+
+        public Node Find(int value)
+        {
+            Node currentNode = this;
+
+            while (currentNode != null)
+            {
+                if (value == currentNode.data)
+                {
+                    return currentNode;
+                }
+                else if (value > currentNode.data)
+                {
+                    currentNode = currentNode.rightChild;
+                }
+                else
+                {
+                    currentNode = currentNode.leftChild;
+                }
+            }
+            return null;
+        }
+           
     }
 }
