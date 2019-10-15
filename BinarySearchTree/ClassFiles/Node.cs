@@ -6,21 +6,58 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
-    public class Node<T>
+    public class Node
     {
         //member variables
-        public T value;
-        public Node<int> leftChild;
-        public Node<int> rightChild;
+        private int data;
+        public int Data
+        {
+            get { return data; }
+        }
+        private Node leftChild;
+        public Node LeftChild
+        {
+            get { return leftChild; }
+            set { leftChild = value; }
+        }
+        private Node rightChild;
+        public Node RightChild
+        {
+            get { return rightChild; }
+            set { rightChild = value; }
+        }
 
         //constructor
-        public Node(T valueIn)
+        public Node(int value)
         {
-            this.value = valueIn;
-            this.leftChild = null;
-            this.rightChild = null;
+            data = value;            
         }
 
         //member methods
+        public void Insert(int value)
+        {
+            if (value >= data)
+            {
+                if (rightChild == null)
+                {
+                    new Node(value);
+                }
+                else
+                {
+                    rightChild.Insert(data);
+                }
+            }
+            else
+            {
+                if (leftChild == null)
+                {
+                    leftChild = new Node(data);
+                }
+                else
+                {
+                    leftChild.Insert(data);
+                }
+            }
+        }
     }
 }

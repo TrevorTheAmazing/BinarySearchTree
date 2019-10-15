@@ -10,97 +10,32 @@ namespace BinarySearchTree
     {
         //member variables
         //public Node<int> start;
-        public Node<int> root;
+        private Node root;
         Random random = new Random();
 
         //constructor
         public BinarySearchTree()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                Add(random.Next(1, 101));
-            }
+            
             
         }
         
         //member methods       
-        public void Add(int valueIn)
+        public void Insert(int data)
         {
-            bool success = false;
-            Node<int> newNode = new Node<int>(valueIn);
-            Node<int> currentNode;
-
-            //determine position
-            while (!success)
+            if (root != null)
             {
-                //1. Set the parent node to be the current node, which is the root node.
-                if (root == null)
-                {
-                    this.root = newNode;
-                    success = true;
-                    break;
-                }
-                else
-                {
-                    currentNode = root;
-                }
-
-                //2a. If the data value in the new node is less than the data value in the current node, 
-                //if (valueIn < root.value)
-                if (valueIn < currentNode.value)
-                {
-                    //currentNode = root;
-                    //set the current node to be the left child of the current node.
-                    //root = root.leftChild;
-                    currentNode = currentNode.leftChild;
-
-                    //3a. If the value of the left child of the current node is null, 
-                    //if (root.leftChild == null)
-                    //if (currentNode.leftChild == null)
-                    if (currentNode == null)
-                    {
-                        //insert the new node here and exit the loop.
-                        //root.leftChild = newNode;
-                        //currentNode.leftChild = newNode;
-                        currentNode = newNode;
-                        success = true;
-                        break;
-                    }
-                    else
-                    {
-                        //3b. Otherwise, skip to the next iteration of the While loop.
-                        break;
-                    }
-                }
-                //2b.If the data value in the new node is greater than the data value in the 
-                //current node, 
-                else if (valueIn >= currentNode.value)
-                {
-                    //skip to Step 4.
-                    //4. Set the current node to the right child node of the current node.
-                    //5a. If the value of the right child of the current node is null, 
-                    //if (root.rightChild == null)
-                    currentNode = currentNode.rightChild;
-
-                    if (currentNode == null)
-                    {
-                        //insert the new node here and exit the loop.
-                        currentNode = newNode;
-                        success = true;
-                        break;
-                    }
-                    else
-                    {
-                        //5b. Otherwise, skip to the next iteration of the While loop
-                        break;
-                    }
-                }
-            }//while
+                root.Insert(data);
+            }
+            else
+            {
+                root = new Node(data);
+            }
         }//Add()
 
-        public Node<int> Search(int keyIn, Node<int> nodeIn)
+        public Node Search(int keyIn, Node nodeIn)
         {
-            Node<int> root = nodeIn;
+            Node root = nodeIn;
             //this is the three-way comparison subroutine
             //1. begin by examining the root node. 
             //2. If the tree is null, 
